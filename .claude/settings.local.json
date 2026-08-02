@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma *)",
+      "Bash(npm run *)",
+      "Bash(taskkill /F /PID 34908)",
+      "Bash(taskkill /F /PID 37048)",
+      "Bash(taskkill /F /PID 38104)",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\pasha\\\\Downloads\\\\import-bih\\\\import-bih\\\\src\\\\app\\\\api\\\\requests\\\\[id]\\\\assign-supplier\")",
+      "Bash(Out-Null)",
+      "Bash(Write-Output \"dir created\")"
+    ]
+  }
+}
