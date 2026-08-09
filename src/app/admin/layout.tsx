@@ -5,8 +5,9 @@ import { authOptions } from '@/lib/auth';
 import { SignOutButton } from '@/components/sign-out-button';
 import { NotificationBell } from '@/components/notification-bell';
 import { Logo } from '@/components/logo';
+import { prisma } from '@/lib/prisma';
 
-const NAV = [
+const STATIC_NAV = [
   { href: '/admin/dashboard', label: 'Dashboard' },
   { href: '/admin/requests', label: 'Zahtjevi' },
   { href: '/admin/clients', label: 'Klijenti' },
@@ -28,6 +29,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!session) redirect('/login');
   if (session.user.role === 'CLIENT') redirect('/client/dashboard');
 
+  let novaCount = 0;
+  try {
+    novaCount = await prisma.contactMessage.count({ where: { status: 'NOVA' } });
+  } catch {
+    // Silently ignore if table not yet migrated
+  }
+
   return (
     <div className="flex min-h-screen">
       <aside className="hidden w-60 shrink-0 border-r border-ink-800 bg-ink-900 md:block">
@@ -38,7 +46,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </p>
         </div>
         <nav className="flex flex-col gap-0.5 p-3">
-          {NAV.map((item) => (
+          {STATIC_NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -47,6 +55,17 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/admin/contact-messages"
+            className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-ink-300 hover:bg-ink-800 hover:text-white"
+          >
+            <span>Poruke sa sajta</span>
+            {novaCount > 0 && (
+              <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+                {novaCount > 99 ? '99+' : novaCount}
+              </span>
+            )}
+          </Link>
         </nav>
       </aside>
 

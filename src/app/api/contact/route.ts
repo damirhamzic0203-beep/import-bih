@@ -33,6 +33,10 @@ export async function POST(req: NextRequest) {
     data: { name, company: company ?? null, phone: phone ?? null, email, message },
   });
 
+  const saved = await prisma.contactMessage.create({
+    data: { name, phone: phone ?? null, email, message },
+  });
+
   try {
     const admins = await prisma.user.findMany({
       where: { role: 'ADMIN' },
@@ -40,7 +44,13 @@ export async function POST(req: NextRequest) {
     });
     await Promise.all(
       admins.map((a) =>
-        notify(a.id, 'contact_form', `Nova poruka sa kontakt forme: ${name}`, message)
+        notify(
+          a.id,
+          'contact_form',
+          `Nova poruka sa kontakt forme: ${name}`,
+          message,
+          `/admin/contact-messages/${saved.id}`
+        )
       )
     );
   } catch (notifyErr) {
