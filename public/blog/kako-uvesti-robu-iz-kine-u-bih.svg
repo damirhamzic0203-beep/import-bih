@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1b33"/><stop offset="1" stop-color="#0e6490"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b4f73"/><stop offset="1" stop-color="#06263d"/></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#sky)"/>
+<circle cx="980" cy="150" r="70" fill="#facc15" opacity=".9"/>
+<g fill="#ffffff" opacity=".08"><circle cx="200" cy="110" r="60"/><circle cx="260" cy="125" r="45"/><circle cx="560" cy="80" r="50"/></g>
+<rect y="400" width="1200" height="230" fill="url(#sea)"/>
+<g stroke="#ffffff" stroke-opacity=".18" stroke-width="3" fill="none"><path d="M0 450 q50 -18 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/><path d="M0 520 q50 -18 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
+<path d="M170 380 H1000 L940 450 H230 Z" fill="#111827"/>
+<rect x="200" y="370" width="800" height="14" fill="#1f2937"/>
+<rect x="780" y="280" width="120" height="92" fill="#e5e7eb"/><rect x="800" y="300" width="80" height="26" fill="#0e6490"/>
+<g>
+<rect x="230" y="318" width="90" height="52" fill="#dc2626"/><rect x="324" y="318" width="90" height="52" fill="#facc15"/><rect x="418" y="318" width="90" height="52" fill="#0e6490"/><rect x="512" y="318" width="90" height="52" fill="#16a34a"/><rect x="606" y="318" width="90" height="52" fill="#f97316"/>
+<rect x="277" y="262" width="90" height="52" fill="#0e6490"/><rect x="371" y="262" width="90" height="52" fill="#dc2626"/><rect x="465" y="262" width="90" height="52" fill="#facc15"/><rect x="559" y="262" width="90" height="52" fill="#16a34a"/>
+<rect x="324" y="206" width="90" height="52" fill="#facc15"/><rect x="418" y="206" width="90" height="52" fill="#f97316"/><rect x="512" y="206" width="90" height="52" fill="#0e6490"/>
+</g>
+<g fill="#000" opacity=".18"><rect x="230" y="318" width="466" height="6"/><rect x="277" y="262" width="372" height="6"/><rect x="324" y="206" width="278" height="6"/></g>
+<text x="60" y="540" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="700" fill="#fff">Kina</text>
+<text x="1060" y="540" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="700" fill="#fff" text-anchor="end">Ploče → BiH</text>
+<path d="M175 560 H1020" stroke="#facc15" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round"/>
+<path d="M1020 560 l-16 -12 v24 z" fill="#facc15"/>
+<text x="60" y="100" font-family="Segoe UI,Arial,sans-serif" font-size="52" font-weight="800" fill="#fff">Uvoz iz Kine u BiH</text>
+<text x="60" y="148" font-family="Segoe UI,Arial,sans-serif" font-size="28" fill="#cbd5e1">Vodič korak po korak</text>
+</svg>

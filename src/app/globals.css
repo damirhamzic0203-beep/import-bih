@@ -30,3 +30,29 @@ body {
 .badge {
   @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
 }
+
+/* Blog članak: tabele i kontrolne liste */
+.blog-prose table {
+  @apply w-full border-collapse overflow-hidden rounded-lg border border-ink-200 text-sm;
+}
+.blog-prose thead th {
+  @apply border-b border-ink-200 bg-brand-50 px-3 py-2 text-left font-semibold text-ink-900;
+}
+.blog-prose tbody td {
+  @apply border-t border-ink-200 px-3 py-2;
+}
+.blog-prose tbody tr:nth-child(even) {
+  @apply bg-ink-50;
+}
+.blog-prose ul.contains-task-list {
+  @apply list-none pl-0;
+}
+.blog-prose li.task-list-item {
+  @apply flex items-start gap-2 pl-0;
+}
+.blog-prose li.task-list-item::marker {
+  content: '';
+}
+.blog-prose li.task-list-item input[type='checkbox'] {
+  @apply mt-1.5 h-4 w-4 shrink-0 accent-brand-700;
+}

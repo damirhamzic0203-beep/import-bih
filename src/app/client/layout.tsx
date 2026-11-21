@@ -16,6 +16,8 @@ const NAV = [
   { href: '/client/messages', label: 'Poruke' },
 ];
 
+export const metadata = { robots: { index: false, follow: false } };
+
 export default async function ClientLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
   if (!session) redirect('/login');

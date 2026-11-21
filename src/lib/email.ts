@@ -3,23 +3,25 @@ import { Resend } from 'resend';
 export async function sendEmail(
   to: string,
   subject: string,
-  body: string
-): Promise<void> {
+  body: string,
+  options?: { replyTo?: string }
+): Promise<boolean> {
   if (!process.env.RESEND_API_KEY) {
     console.log('[EMAIL - RESEND_API_KEY nije postavljen, fallback na log]', {
       to,
       subject,
       body,
     });
-    return;
+    return false;
   }
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'Import BiH <onboarding@resend.dev>',
       to,
       subject,
+      ...(options?.replyTo ? { replyTo: options.replyTo } : {}),
       html: `<div style="font-family: sans-serif; max-width: 600px;">
         <h2 style="color: #0e6089;">Import BiH</h2>
         <p>${body}</p>
@@ -29,8 +31,14 @@ export async function sendEmail(
         </p>
       </div>`,
     });
+    if (error) {
+      console.error('[EMAIL] Resend greška:', error);
+      return false;
+    }
+    return true;
   } catch (err) {
     console.error('[EMAIL] Greška pri slanju:', err);
     // Email failure ne smije srušiti glavnu akciju
+    return false;
   }
 }

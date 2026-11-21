@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1b33"/><stop offset="1" stop-color="#0e6490"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<text x="60" y="100" font-family="Segoe UI,Arial,sans-serif" font-size="52" font-weight="800" fill="#fff">Koliko košta uvoz?</text>
+<text x="60" y="148" font-family="Segoe UI,Arial,sans-serif" font-size="28" fill="#cbd5e1">Roba + transport + carina + PDV</text>
+<g font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="24" fill="#fff">
+<rect x="80" y="440" width="150" height="90" rx="10" fill="#0e6490" stroke="#fff" stroke-opacity=".4"/><text x="155" y="492" text-anchor="middle">Roba</text>
+<rect x="260" y="400" width="150" height="130" rx="10" fill="#16a34a"/><text x="335" y="474" text-anchor="middle">Transport</text>
+<rect x="440" y="360" width="150" height="170" rx="10" fill="#f97316"/><text x="515" y="454" text-anchor="middle">Carina</text>
+<rect x="620" y="300" width="150" height="230" rx="10" fill="#dc2626"/><text x="695" y="424" text-anchor="middle">PDV 17%</text>
+<rect x="800" y="220" width="150" height="310" rx="10" fill="#facc15"/><text x="875" y="384" text-anchor="middle" fill="#111827">Dostava</text>
+</g>
+<g fill="#fff" font-family="Segoe UI,Arial,sans-serif" font-size="28" font-weight="700">
+<text x="155" y="425" text-anchor="middle" opacity=".8">+</text><text x="335" y="385" text-anchor="middle" opacity=".8">+</text><text x="515" y="345" text-anchor="middle" opacity=".8">+</text><text x="695" y="285" text-anchor="middle" opacity=".8">+</text>
+</g>
+<path d="M60 550 H1000" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+<g transform="translate(1010 190)"><circle cx="70" cy="70" r="70" fill="#facc15"/><text x="70" y="88" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="68" font-weight="800" fill="#111827">€</text></g>
+<g transform="translate(1040 360)" fill="#facc15" opacity=".75"><circle cx="40" cy="40" r="40"/><text x="40" y="54" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="40" font-weight="800" fill="#111827">KM</text></g>
+</svg>

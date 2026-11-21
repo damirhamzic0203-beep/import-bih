@@ -3,49 +3,27 @@ import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
-async function main() {
-  const password = await bcrypt.hash('password123', 10);
+const ADMIN_EMAIL = 'admin@importbih.ba';
 
-  const company = await prisma.company.upsert({
-    where: { id: 'seed-company-abc' },
+async function main() {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword || adminPassword.length < 8) {
+    throw new Error('ADMIN_PASSWORD env varijabla je obavezna (min. 8 znakova).');
+  }
+  const passwordHash = await bcrypt.hash(adminPassword, 10);
+
+  await prisma.user.upsert({
+    where: { email: ADMIN_EMAIL },
     update: {},
     create: {
-      id: 'seed-company-abc',
-      name: 'ABC d.o.o.',
-      taxId: '4200000000001',
-      city: 'Sarajevo',
-      country: 'Bosna i Hercegovina',
+      email: ADMIN_EMAIL,
+      name: 'Admin Korisnik',
+      role: Role.ADMIN,
+      passwordHash,
     },
   });
 
-  const users: Array<{ email: string; name: string; role: Role; companyId?: string }> = [
-    { email: 'admin@importbih.ba', name: 'Admin Korisnik', role: Role.ADMIN },
-    { email: 'ops@importbih.ba', name: 'Operativa Korisnik', role: Role.OPERATIONS },
-    { email: 'sales@importbih.ba', name: 'Prodaja Korisnik', role: Role.SALES },
-    {
-      email: 'klijent@abc.ba',
-      name: 'Klijent Test',
-      role: Role.CLIENT,
-      companyId: company.id,
-    },
-  ];
-
-  for (const u of users) {
-    await prisma.user.upsert({
-      where: { email: u.email },
-      update: {},
-      create: {
-        email: u.email,
-        name: u.name,
-        role: u.role,
-        passwordHash: password,
-        companyId: u.companyId,
-      },
-    });
-  }
-
-  console.log('Seed complete. Test login for every role: password123');
-  console.log(users.map((u) => u.email).join('\n'));
+  console.log(ADMIN_EMAIL);
 }
 
 main()

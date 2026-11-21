@@ -24,6 +24,8 @@ const STATIC_NAV = [
   { href: '/admin/settings', label: 'Podešavanja' },
 ];
 
+export const metadata = { robots: { index: false, follow: false } };
+
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
   if (!session) redirect('/login');

@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+const SEND_FAILED =
+  'Slanje nije uspjelo, pokušajte ponovo ili nas kontaktirajte na kontakt@importbih.com';
+
 export function ContactForm() {
   const [form, setForm] = useState({
     name: '',
@@ -23,21 +26,26 @@ export function ContactForm() {
     setSaving(true);
     setError('');
 
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
 
-    setSaving(false);
+      if (res.status !== 200) {
+        const data = await res.json().catch(() => null);
+        setError(data?.message ?? SEND_FAILED);
+        return;
+      }
 
-    if (!res.ok) {
-      const data = await res.json();
-      setError(data.message ?? 'Greška pri slanju poruke. Pokušajte ponovo.');
-      return;
+      setSuccess(true);
+    } catch {
+      // Offline / mrežna greška - uneseni tekst ostaje u formi
+      setError(SEND_FAILED);
+    } finally {
+      setSaving(false);
     }
-
-    setSuccess(true);
   }
 
   if (success) {
@@ -53,7 +61,11 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && (
+        <p role="alert" className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-600">
+          {error}
+        </p>
+      )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>

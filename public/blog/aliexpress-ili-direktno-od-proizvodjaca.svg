@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1b33"/><stop offset="1" stop-color="#0e6490"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<text x="60" y="100" font-family="Segoe UI,Arial,sans-serif" font-size="52" font-weight="800" fill="#fff">Platforma ili fabrika?</text>
+<text x="60" y="148" font-family="Segoe UI,Arial,sans-serif" font-size="28" fill="#cbd5e1">Kada se isplati direktan uvoz</text>
+<!-- left: platform -->
+<g transform="translate(70 220)">
+<rect width="480" height="330" rx="22" fill="#ffffff" opacity=".1" stroke="#fff" stroke-opacity=".3"/>
+<rect x="150" y="50" width="180" height="110" rx="16" fill="#e5e7eb"/><rect x="162" y="64" width="156" height="68" rx="6" fill="#0e6490"/><circle cx="240" cy="146" r="6" fill="#6b7280"/>
+<text x="240" y="215" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#fff">Online platforma</text>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#fecaca"><text x="60" y="255">✗ viša cijena po komadu</text><text x="60" y="288">✗ manje prilagodbi</text></g>
+</g>
+<!-- right: factory -->
+<g transform="translate(650 220)">
+<rect width="480" height="330" rx="22" fill="#ffffff" opacity=".14" stroke="#facc15" stroke-width="3"/>
+<path d="M120 150 V95 l60 30 V95 l60 30 V95 l60 30 V70 h40 V150 Z" fill="#e5e7eb"/><rect x="120" y="150" width="220" height="14" fill="#9ca3af"/>
+<rect x="150" y="122" width="26" height="28" fill="#0e6490"/><rect x="195" y="122" width="26" height="28" fill="#0e6490"/><rect x="240" y="122" width="26" height="28" fill="#0e6490"/>
+<rect x="318" y="48" width="22" height="26" fill="#6b7280"/>
+<text x="240" y="215" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#fff">Direktno od proizvođača</text>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#bbf7d0"><text x="60" y="255">✓ cijena po količini</text><text x="60" y="288">✓ prilagodba proizvoda</text></g>
+</g>
+<text x="600" y="395" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="40" font-weight="800" fill="#facc15">VS</text>
+</svg>
